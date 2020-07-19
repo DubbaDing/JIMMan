@@ -21,8 +21,6 @@ CLI with Options:
 ```bash
 $ java -jar JIMMan
 ```
-### Output
-The output will be in the same location as the original file. The file name will be the same, except with "_" and the method used. All outputs will be in .jpg format.
 
 ### Images
 Type the full or relative path to an image
@@ -36,6 +34,8 @@ Type the full or relative path to an image
 - ` distorted `   Messing with the pixels to make distortion
 - ` mixup `       Mix up the red, green, blue pixels
 
+### Output
+The output will be in the same location as the original file. The file name will be the same, except with "_" and the method used. All outputs will be in .jpg format.
 
 ## License
 [![GitHub license](https://img.shields.io/github/license/DubbaDing/JIMMan?color=m&style=for-the-badge)](https://github.com/DubbaDing/JIMMan/blob/master/LICENSE)
