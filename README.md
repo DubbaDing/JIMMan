@@ -24,10 +24,10 @@ $ java -jar JIMMan
 ### Output
 The output will be in the same location as the original file. The file name will be the same, except with "_" and the method used. All outputs will be in .jpg format.
 
-## Images
+### Images
 Type the full or relative path to an image
 
-## Available Commands
+### Available Commands
 - ` invert `      Invert the image's colors
 - ` greyscale `   Change the image's colors to greyscale
 - ` red `         Only display the red colors
