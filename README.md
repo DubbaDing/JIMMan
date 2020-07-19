@@ -38,7 +38,7 @@ Type the full or relative path to an image
 
 
 ## License
-<img alt="GitHub" src="https://img.shields.io/github/license/DubbaDing/JIMMan?style=for-the-badge">
+[![GitHub license](https://img.shields.io/github/license/DubbaDing/JIMMan?color=m&style=for-the-badge)](https://github.com/DubbaDing/JIMMan/blob/master/LICENSE)
 
 MIT License
 
