@@ -1,4 +1,4 @@
-<img alt="GitHub" src="https://img.shields.io/github/license/DubbaDing/JIMMan?style=for-the-badge"><a href="https://github.com/DubbaDing/JIMMan/issues">    <img alt="GitHub issues" src="https://img.shields.io/github/issues/DubbaDing/JIMMan?style=for-the-badge"></a>    <img alt="Maintenance" src="https://img.shields.io/maintenance/yes/2020?style=for-the-badge">
+[![GitHub license](https://img.shields.io/github/license/DubbaDing/JIMMan?color=m&style=for-the-badge)](https://github.com/DubbaDing/JIMMan/blob/master/LICENSE)    [![GitHub issues](https://img.shields.io/github/issues/DubbaDing/JIMMan?style=for-the-badge)](https://github.com/DubbaDing/JIMMan/issues)    ![Maintenance](https://img.shields.io/maintenance/yes/2020?style=for-the-badge)
 
 # JIMMan
 Java IMAge Manipulator
@@ -29,8 +29,13 @@ Type the full or relative path to an image
 
 ## Available Commands
 - ` invert `      Invert the image's colors
-- ` red `         Only display the red colors
 - ` greyscale `   Change the image's colors to greyscale
+- ` red `         Only display the red colors
+- ` green `       Only display the green colors
+- ` blue `        Only display the blue colors
+- ` distorted `   Messing with the pixels to make distortion
+- ` mixup `       Mix up the red, green, blue pixels
+
 
 ## License
 <img alt="GitHub" src="https://img.shields.io/github/license/DubbaDing/JIMMan?style=for-the-badge">
