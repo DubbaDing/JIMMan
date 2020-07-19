@@ -4,7 +4,7 @@
 Java IMAge Manipulator
 
 ## Install
-- Clone repo ` git clone https://github.com/DubbaDing/JIMMan.git `
+Clone repo ` git clone https://github.com/DubbaDing/JIMMan.git `
 
 ## Usage
 java -jar JIMMan [image] [command]
