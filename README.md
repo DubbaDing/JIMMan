@@ -7,7 +7,10 @@ Java IMAge Manipulator
 Clone repo ` git clone https://github.com/DubbaDing/JIMMan.git `
 
 ## Usage
-` java -jar JIMMan [image] [command] `
+Git Clone:
+```bash
+$ java -jar JIMMan [image] [command]
+```
 
 ## Available Commands
 - ` invert `      Invert the image's colors
