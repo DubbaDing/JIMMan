@@ -7,9 +7,9 @@ Java IMAge Manipulator
 Clone repo ` git clone https://github.com/DubbaDing/JIMMan.git `
 
 ## Usage
-java -jar JIMMan [image] [command]
+` java -jar JIMMan [image] [command] `
 
 ## Available Commands
-- invert      Invert the image's colors
-- red         Only display the red colors
-- greyscale   Change the image's colors to greyscale
+- ` invert `      Invert the image's colors
+- ` red `         Only display the red colors
+- ` greyscale `   Change the image's colors to greyscale
