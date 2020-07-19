@@ -1,7 +1,9 @@
 
 # JIMMan
 Java IMAge Manipulator
-<a href="https://github.com/DubbaDing/JIMMan/issues"><img alt="GitHub issues" src="https://img.shields.io/github/issues/DubbaDing/JIMMan"></a>
+
+
+<a href="https://github.com/DubbaDing/JIMMan/issues"><img alt="GitHub issues" src="https://img.shields.io/github/issues/DubbaDing/JIMMan?style=for-the-badge"></a>
 
 ## Install
 - Clone repo
