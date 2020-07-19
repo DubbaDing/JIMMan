@@ -3,14 +3,29 @@
 # JIMMan
 Java IMAge Manipulator
 
+## Description
+This program uses the Java ImageIO library to mainpulate the pixels of an image
+
 ## Install
-Clone repo ` git clone https://github.com/DubbaDing/JIMMan.git `
+Git Clone: 
+```bash
+git clone https://github.com/DubbaDing/JIMMan.git
+```
 
 ## Usage
-Git Clone:
+CLI:
 ```bash
 $ java -jar JIMMan [image] [command]
 ```
+CLI with Options:
+```bash
+$ java -jar JIMMan
+```
+### Output
+The output will be in the same location as the original file. The file name will be the same, except with "_" and the method used. All outputs will be in .jpg format.
+
+## Images
+Type the full or relative path to an image
 
 ## Available Commands
 - ` invert `      Invert the image's colors
