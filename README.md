@@ -1,7 +1,6 @@
 
 # JIMMan
-
-### Java IMAge Manipulator
+Java IMAge Manipulator
 
 ## Install
 - Clone repo
