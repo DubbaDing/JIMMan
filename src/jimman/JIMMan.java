@@ -10,7 +10,7 @@ import java.util.Scanner;
 /**
  * @author CarlCaldwell
  */
-public class JimMan {
+public class JIMMan {
     
     Scanner sc = new Scanner(System.in);
     
@@ -54,7 +54,7 @@ public class JimMan {
             
         }else{
         
-            JimMan j = new JimMan();
+            JIMMan j = new JIMMan();
             System.out.println("Welcome to JIMMan");
             System.out.println("Jave IMage MANipulator\n");
 
@@ -390,7 +390,7 @@ public class JimMan {
     
     private static void runHeadless(String filename, String command) throws IOException, Exception{
         
-        JimMan j = new JimMan();
+        JIMMan j = new JIMMan();
         BufferedImage img = null;
         
         try{
