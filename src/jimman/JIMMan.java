@@ -363,10 +363,10 @@ public class JIMMan {
                 Random rand = new Random();
                 int n = rand.nextInt(254) + 1;
                 
-                int alpha = c.getAlpha()%n;
-                int red = c.getRed()%n;
-                int green = c.getGreen()%n;
-                int blue = c.getBlue()%n;
+                int alpha = (c.getAlpha()+n)%255;
+                int red = (c.getRed()+n)%255;
+                int green = (c.getGreen()+n)%255;
+                int blue = (c.getBlue()+n)%255;
                 
                 
                 int p = 0;
