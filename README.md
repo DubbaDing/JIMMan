@@ -11,6 +11,12 @@ Git Clone:
 ```bash
 git clone https://github.com/DubbaDing/JIMMan.git
 ```
+Compile:
+```bash
+$ cd JIMMan/src/jimmman
+$ javac JIMMan.java
+$ java JIMMan.java
+```
 
 ## Usage
 CLI:
