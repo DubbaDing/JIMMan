@@ -18,14 +18,17 @@ public class JIMMan {
         
         // check if running headless
         if(args.length > 0){
-            if(args[0].equals("help")){
+            if(args[0].equals("help") || args[1].equals("help")){
                 System.out.println("\nWelcome to JIMMan\n");
                 System.out.println("Usage:\tjava -jar JimMan [filepath] [command]\n");
                 System.out.println("Available Commands:");
                 System.out.println("\thelp\t\tshow this help menu");
                 System.out.println("\tinvert\t\tInvert the colors of every pixel");
                 System.out.println("\tgreyscale\tGreyscale all pixels");
-                System.out.println("\tred\t\tGreyscale, but in shades of red\n");
+                System.out.println("\tred\t\tOnly show red pixels\n");
+                System.out.println("\tblue\t\tOnly show blue pixels\n");
+                System.out.println("\tgreen\t\tOnly show green pixels\n");
+                System.out.println("\tmixup\t\tSwap the RGB pixels\n");
                 System.out.println("Example: java -jar JimMan.jar image.jpg invert\n");
                 
             }else{
@@ -105,7 +108,6 @@ public class JIMMan {
                     userOption = 0;
                 }
             }
-            
 
             switch (userOption) {
                 case 1:
@@ -113,27 +115,27 @@ public class JIMMan {
                     newImagePath = userImagePath.replaceFirst("[.][^.]+$", "")+"_inverted";
                     break;
                 case 2:
-                    img = j.greyscale(img);
+                    img = imgMan.greyscale(img);
                     newImagePath = userImagePath+"_greyscale";
                     break;
                 case 3:
-                    img = j.red(img);
+                    img = imgMan.red(img);
                     newImagePath = userImagePath+"_red";
                     break;
                 case 4:
-                    img = j.green(img);
+                    img = imgMan.green(img);
                     newImagePath = userImagePath+"_green";
                     break;
                 case 5:
-                    img = j.blue(img);
+                    img = imgMan.blue(img);
                     newImagePath = userImagePath+"_blue";
                     break;
                 case 6:
-                    img = j.distorted(img);
+                    img = imgMan.distorted(img);
                     newImagePath = userImagePath+"_distorted";
                     break;    
                 case 7:
-                    img = j.mixup(img);
+                    img = imgMan.mixup(img);
                     newImagePath = userImagePath+"_mixup";
                     break;
                 default:
@@ -148,7 +150,7 @@ public class JIMMan {
             
             JIMMan.printLine();
             System.out.println("Your image is saves as "+newImagePath+".jpg");
-            System.out.println("\nThanks for using JIMMan\n");
+            System.out.println("Thanks for using JIMMan\n");
            
         }
         
@@ -175,190 +177,6 @@ public class JIMMan {
         System.out.println("-----------------------------------------\n");
     }
     
-    /**************************************************************/
-    /*********** IMAGE MANIPULATION *******************************/
-    /**************************************************************/
-    
-    
-    
-    private BufferedImage greyscale(BufferedImage image){
-        
-        // image coords
-        int width = image.getWidth();
-        int height = image.getHeight();
-        
-        for(int x=0 ; x<width ; x++){
-            for(int y=0 ; y<height ; y++){
-                
-                int pixel = image.getRGB(x, y);
-                
-                Color c = new Color(pixel, true);
-                int alpha = c.getAlpha();
-                int red = c.getRed();
-                int green = c.getGreen();
-                int blue = c.getBlue();
-                
-                int newPixel = (red+green+blue)/3;
-                
-                int p = 0;
-			p = p | (alpha << 24);
-			p = p | (newPixel << 16);
-			p = p | (newPixel << 8);
-			p = p | newPixel;
-                image.setRGB(x, y, p);
-            }
-        }
-        return image;
-    }
-    
-    private BufferedImage red(BufferedImage image){
-        
-        // image coords
-        int width = image.getWidth();
-        int height = image.getHeight();
-        
-        for(int x=0 ; x<width ; x++){
-            for(int y=0 ; y<height ; y++){
-                
-                int pixel = image.getRGB(x, y);
-                
-                Color c = new Color(pixel, true);
-                int alpha = c.getAlpha();
-                int red = c.getRed();
-                int green = c.getGreen()-c.getGreen();
-                int blue = c.getBlue()-c.getBlue();
-                
-                
-                int p = 0;
-			p = p | (alpha << 24);
-			p = p | (red << 16);
-			p = p | (green << 8);
-			p = p | blue;
-                image.setRGB(x, y, p);
-            }
-        }
-        return image;
-    }
-    private BufferedImage green(BufferedImage image){
-        
-        // image coords
-        int width = image.getWidth();
-        int height = image.getHeight();
-        
-        for(int x=0 ; x<width ; x++){
-            for(int y=0 ; y<height ; y++){
-                
-                int pixel = image.getRGB(x, y);
-                
-                Color c = new Color(pixel, true);
-                int alpha = c.getAlpha();
-                int red = c.getRed()-c.getRed();
-                int green = c.getGreen();
-                int blue = c.getBlue()-c.getBlue();
-                
-                
-                int p = 0;
-			p = p | (alpha << 24);
-			p = p | (red << 16);
-			p = p | (green << 8);
-			p = p | blue;
-                image.setRGB(x, y, p);
-            }
-        }
-        return image;
-    }
-    private BufferedImage blue(BufferedImage image){
-        
-        // image coords
-        int width = image.getWidth();
-        int height = image.getHeight();
-        
-        for(int x=0 ; x<width ; x++){
-            for(int y=0 ; y<height ; y++){
-                
-                int pixel = image.getRGB(x, y);
-                
-                Color c = new Color(pixel, true);
-                int alpha = c.getAlpha();
-                int red = c.getRed()-c.getRed();
-                int green = c.getGreen()-c.getGreen();
-                int blue = c.getBlue();
-                
-                
-                int p = 0;
-			p = p | (alpha << 24);
-			p = p | (red << 16);
-			p = p | (green << 8);
-			p = p | blue;
-                image.setRGB(x, y, p);
-            }
-        }
-        return image;
-    }
-    private BufferedImage mixup(BufferedImage image){
-        
-        // image coords
-        int width = image.getWidth();
-        int height = image.getHeight();
-        
-        for(int x=0 ; x<width ; x++){
-            for(int y=0 ; y<height ; y++){
-                
-                int pixel = image.getRGB(x, y);
-                
-                Color c = new Color(pixel, true);
-                int alpha = c.getAlpha();
-                int red = c.getRed();
-                int green = c.getGreen();
-                int blue = c.getBlue();
-                
-                
-                int p = 0;
-			p = p | (alpha << 24);
-			p = p | (blue << 16);
-			p = p | (red << 8);
-			p = p | green;
-                image.setRGB(x, y, p);
-            }
-        }
-        return image;
-    }
-    
-    private BufferedImage distorted(BufferedImage image){
-        
-        // image coords
-        int width = image.getWidth();
-        int height = image.getHeight();
-        
-        for(int x=0 ; x<width ; x++){
-            for(int y=0 ; y<height ; y++){
-                
-                int pixel = image.getRGB(x, y);
-                
-                Color c = new Color(pixel, true);
-                Random rand = new Random();
-                int n = rand.nextInt(225) + 1;
-                
-                int alpha = (c.getAlpha()+n)%255;
-                int red = (c.getRed()+n)%255;
-                int green = (c.getGreen()+n)%255;
-                int blue = (c.getBlue()+n)%255;
-                
-                int p = 0;
-			p = p | (alpha << 24);
-			p = p | (red << 16);
-			p = p | (blue << 8);
-			p = p | green;
-                image.setRGB(x, y, p);
-            }
-        }
-        return image;
-    }
-    
-    
-    
-    
-    
     /**********************************************************************/
     /**************** HEADLESS ********************************************/
     /**********************************************************************/
@@ -384,42 +202,42 @@ public class JIMMan {
                 break;
             case "greyscale":
                 try{
-                    Filer.saveImage(j.greyscale(img), filename.replaceFirst("[.][^.]+$", "")+"_greyscale");
+                    Filer.saveImage(imgMan.greyscale(img), filename.replaceFirst("[.][^.]+$", "")+"_greyscale");
                 }catch(IOException r){
                     throw new IOException("Could not save image. Please try again.");
                 }
                 break;
             case "red":
                 try{
-                    Filer.saveImage(j.red(img), filename.replaceFirst("[.][^.]+$", "")+"_red");
+                    Filer.saveImage(imgMan.red(img), filename.replaceFirst("[.][^.]+$", "")+"_red");
                 }catch(IOException r){
                     throw new IOException("Could not save image. Please try again.");
                 }
                 break;
             case "green":
                 try{
-                    Filer.saveImage(j.green(img), filename.replaceFirst("[.][^.]+$", "")+"_green");
+                    Filer.saveImage(imgMan.green(img), filename.replaceFirst("[.][^.]+$", "")+"_green");
                 }catch(IOException r){
                     throw new IOException("Could not save image. Please try again.");
                 }
                 break;
             case "blue":
                 try{
-                    Filer.saveImage(j.blue(img), filename.replaceFirst("[.][^.]+$", "")+"_blue");
+                    Filer.saveImage(imgMan.blue(img), filename.replaceFirst("[.][^.]+$", "")+"_blue");
                 }catch(IOException r){
                     throw new IOException("Could not save image. Please try again.");
                 }
                 break;    
             case "distorted":
                 try{
-                    Filer.saveImage(j.distorted(img), filename.replaceFirst("[.][^.]+$", "")+"_distorted");
+                    Filer.saveImage(imgMan.distorted(img), filename.replaceFirst("[.][^.]+$", "")+"_distorted");
                 }catch(IOException r){
                     throw new IOException("Could not save image. Please try again.");
                 }
                 break;
             case "mixup":
                 try{
-                    Filer.saveImage(j.mixup(img), filename.replaceFirst("[.][^.]+$", "")+"_mixup");
+                    Filer.saveImage(imgMan.mixup(img), filename.replaceFirst("[.][^.]+$", "")+"_mixup");
                 }catch(IOException r){
                     throw new IOException("Could not save image. Please try again.");
                 }
