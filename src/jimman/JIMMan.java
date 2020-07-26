@@ -68,7 +68,7 @@ public class JIMMan {
                 userImagePath = j.sc.next();
 
                 try{
-                    img = j.getImage(userImagePath);
+                    img = Filer.getImage(userImagePath);
                     System.out.println("Your image has been uploaded successfully!");
                     noImage = false;
                 }catch(IOException e){
@@ -121,7 +121,7 @@ public class JIMMan {
             }
 
             try{
-                j.saveImage(img, newImagePath);
+                Filer.saveImage(img, newImagePath);
             }catch(IOException e){
                 System.out.println("Could not save image. Please try again.");
             }
@@ -137,26 +137,26 @@ public class JIMMan {
     /************ IMAGE I/O FUNCTIONS *************************/
     /**********************************************************/
     
-    public void saveImage(BufferedImage imageToSave, String fileName) throws IOException {
-        try{
-            File imgFile = new File(fileName + ".jpg");
-            ImageIO.write(imageToSave, "jpeg", imgFile);
-        }catch(IOException e){
-            throw new IOException(e);
-        }
-    }
-    
-    private BufferedImage getImage(String imageStr) throws IOException{
-        File file = new File(imageStr);
-        
-        BufferedImage image = null;
-        try{
-            image = ImageIO.read(file);
-        }catch(IOException e){
-            throw new IOException(e);
-        }
-        return image;
-    }
+//    public void saveImage(BufferedImage imageToSave, String fileName) throws IOException {
+//        try{
+//            File imgFile = new File(fileName + ".jpg");
+//            ImageIO.write(imageToSave, "jpeg", imgFile);
+//        }catch(IOException e){
+//            throw new IOException(e);
+//        }
+//    }
+//    
+//    private BufferedImage getImage(String imageStr) throws IOException{
+//        File file = new File(imageStr);
+//        
+//        BufferedImage image = null;
+//        try{
+//            image = ImageIO.read(file);
+//        }catch(IOException e){
+//            throw new IOException(e);
+//        }
+//        return image;
+//    }
     
     
     
@@ -361,13 +361,12 @@ public class JIMMan {
                 
                 Color c = new Color(pixel, true);
                 Random rand = new Random();
-                int n = rand.nextInt(254) + 1;
+                int n = rand.nextInt(225) + 1;
                 
                 int alpha = (c.getAlpha()+n)%255;
                 int red = (c.getRed()+n)%255;
                 int green = (c.getGreen()+n)%255;
                 int blue = (c.getBlue()+n)%255;
-                
                 
                 int p = 0;
 			p = p | (alpha << 24);
@@ -394,7 +393,7 @@ public class JIMMan {
         BufferedImage img = null;
         
         try{
-            img = j.getImage(filename);
+            img = Filer.getImage(filename);
         }catch(IOException e){
             throw new IOException("Could not open image. Please try again.");
         }
@@ -402,49 +401,49 @@ public class JIMMan {
         switch(command){
             case "invert":
                 try{
-                    j.saveImage(j.invertColors(img), filename.replaceFirst("[.][^.]+$", "")+"_inverted");
+                    Filer.saveImage(j.invertColors(img), filename.replaceFirst("[.][^.]+$", "")+"_inverted");
                 }catch(IOException r){
                     throw new IOException("Could not save image. Please try again.");
                 }
                 break;
             case "greyscale":
                 try{
-                    j.saveImage(j.greyscale(img), filename.replaceFirst("[.][^.]+$", "")+"_greyscale");
+                    Filer.saveImage(j.greyscale(img), filename.replaceFirst("[.][^.]+$", "")+"_greyscale");
                 }catch(IOException r){
                     throw new IOException("Could not save image. Please try again.");
                 }
                 break;
             case "red":
                 try{
-                    j.saveImage(j.red(img), filename.replaceFirst("[.][^.]+$", "")+"_red");
+                    Filer.saveImage(j.red(img), filename.replaceFirst("[.][^.]+$", "")+"_red");
                 }catch(IOException r){
                     throw new IOException("Could not save image. Please try again.");
                 }
                 break;
             case "green":
                 try{
-                    j.saveImage(j.green(img), filename.replaceFirst("[.][^.]+$", "")+"_green");
+                    Filer.saveImage(j.green(img), filename.replaceFirst("[.][^.]+$", "")+"_green");
                 }catch(IOException r){
                     throw new IOException("Could not save image. Please try again.");
                 }
                 break;
             case "blue":
                 try{
-                    j.saveImage(j.blue(img), filename.replaceFirst("[.][^.]+$", "")+"_blue");
+                    Filer.saveImage(j.blue(img), filename.replaceFirst("[.][^.]+$", "")+"_blue");
                 }catch(IOException r){
                     throw new IOException("Could not save image. Please try again.");
                 }
                 break;    
             case "distorted":
                 try{
-                    j.saveImage(j.distorted(img), filename.replaceFirst("[.][^.]+$", "")+"_distorted");
+                    Filer.saveImage(j.distorted(img), filename.replaceFirst("[.][^.]+$", "")+"_distorted");
                 }catch(IOException r){
                     throw new IOException("Could not save image. Please try again.");
                 }
                 break;
             case "mixup":
                 try{
-                    j.saveImage(j.mixup(img), filename.replaceFirst("[.][^.]+$", "")+"_mixup");
+                    Filer.saveImage(j.mixup(img), filename.replaceFirst("[.][^.]+$", "")+"_mixup");
                 }catch(IOException r){
                     throw new IOException("Could not save image. Please try again.");
                 }
