@@ -132,33 +132,6 @@ public class JIMMan {
     }
     
     
-    /**********************************************************/
-    /************ IMAGE I/O FUNCTIONS *************************/
-    /**********************************************************/
-    
-//    public void saveImage(BufferedImage imageToSave, String fileName) throws IOException {
-//        try{
-//            File imgFile = new File(fileName + ".jpg");
-//            ImageIO.write(imageToSave, "jpeg", imgFile);
-//        }catch(IOException e){
-//            throw new IOException(e);
-//        }
-//    }
-//    
-//    private BufferedImage getImage(String imageStr) throws IOException{
-//        File file = new File(imageStr);
-//        
-//        BufferedImage image = null;
-//        try{
-//            image = ImageIO.read(file);
-//        }catch(IOException e){
-//            throw new IOException(e);
-//        }
-//        return image;
-//    }
-    
-    
-    
     /***************************************************************/
     /***************** MENU PRINTERS *******************************/
     /***************************************************************/
