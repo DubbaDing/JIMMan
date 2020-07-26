@@ -54,8 +54,8 @@ public class JIMMan {
         }else{
         
             JIMMan j = new JIMMan();
-            System.out.println("Welcome to JIMMan");
-            System.out.println("Jave IMage MANipulator\n");
+            j.printMainMenu();
+            
 
             boolean noImage = true;
             BufferedImage img = null;
@@ -63,15 +63,17 @@ public class JIMMan {
             String userImagePath = "";
 
             while(noImage){
-                j.printMainMenu();
+                
+                System.out.print("Please enter an image path: ");
                 userImagePath = j.sc.next();
 
                 try{
                     img = Filer.getImage(userImagePath);
-                    System.out.println("Your image has been uploaded successfully!");
+                    System.out.println("Success! Your image has been loaded!");
+                    JIMMan.printLine();
                     noImage = false;
                 }catch(IOException e){
-                    System.out.println("Could not upload your image. Please try again.");
+                    System.out.println("\nERROR! Could not load image.");
                 }
             }
 
@@ -82,12 +84,32 @@ public class JIMMan {
             System.out.println("4. Green");
             System.out.println("5. Blue");
             System.out.println("6. Distorted");
-            System.out.print("Selection: ");
-            int userOption = j.sc.nextInt();
+            System.out.println("7. Mixup");
+            System.out.print("Selection [0-7]: ");
+            int userOption;
+            try{
+                userOption = j.sc.nextInt();
+            }catch(Exception e){
+                userOption = -1;
+            }
+            
+            
+            
+            while(userOption < 1 || userOption > 7){
+                System.out.println("\nInvalid option ");
+                System.out.print("Selection [0-7]: ");
+                try{
+                    userOption = j.sc.nextInt();
+                }catch(Exception e){
+                    j.sc.next();
+                    userOption = 0;
+                }
+            }
+            
 
             switch (userOption) {
                 case 1:
-                    img = j.invertColors(img);
+                    img = imgMan.invertColors(img);
                     newImagePath = userImagePath.replaceFirst("[.][^.]+$", "")+"_inverted";
                     break;
                 case 2:
@@ -111,10 +133,9 @@ public class JIMMan {
                     newImagePath = userImagePath+"_distorted";
                     break;    
                 case 7:
-                    img = j.greyscale(img);
-                    newImagePath = userImagePath+"_todo";
-                    break;    
-                    
+                    img = j.mixup(img);
+                    newImagePath = userImagePath+"_mixup";
+                    break;
                 default:
                     break;
             }
@@ -125,7 +146,9 @@ public class JIMMan {
                 System.out.println("Could not save image. Please try again.");
             }
             
-            System.out.println("\nDone. Thanks for using JIMMan\n");
+            JIMMan.printLine();
+            System.out.println("Your image is saves as "+newImagePath+".jpg");
+            System.out.println("\nThanks for using JIMMan\n");
            
         }
         
@@ -137,45 +160,26 @@ public class JIMMan {
     /***************************************************************/
     
     private void printMainMenu(){
-        System.out.println("--------------------------");
-        System.out.println("Sample images:");
-        System.out.println("src/img/mountains.jpg:");
-        System.out.println("src/img/trashcan.jpeg");
-        System.out.println("--------------------------");
-        System.out.print("Type a file path to an image: ");
+        System.out.println("\n\n       _ _____ __  __ __  __              ");
+        System.out.println("      | |_   _|  \\/  |  \\/  |             ");
+        System.out.println("      | | | | | \\  / | \\  / | __ _ _ __   ");
+        System.out.println("  _   | | | | | |\\/| | |\\/| |/ _` | '_ \\  ");
+        System.out.println(" | |__| |_| |_| |  | | |  | | (_| | | | | ");
+        System.out.println("  \\____/|_____|_|  |_|_|  |_|\\__,_|_| |_| \n");
+        System.out.println("                   Java IMage MANipulator");
+        System.out.println("                        BY: Carl Caldwell");
+        System.out.println("-----------------------------------------\n");                                  
+    }
+    
+    private static void printLine(){
+        System.out.println("-----------------------------------------\n");
     }
     
     /**************************************************************/
     /*********** IMAGE MANIPULATION *******************************/
     /**************************************************************/
     
-    private BufferedImage invertColors(BufferedImage image){
-        
-        // image coords
-        int width = image.getWidth();
-        int height = image.getHeight();
-        
-        for(int x=0 ; x<width ; x++){
-            for(int y=0 ; y<height ; y++){
-                
-                int pixel = image.getRGB(x, y);
-                
-                Color c = new Color(pixel, true);
-                int alpha = 255 - c.getAlpha();
-                int red = 255 - c.getRed();
-                int green = 255 - c.getGreen();
-                int blue = 255 - c.getBlue();
-                
-                int p = 0;
-			p = p | (alpha << 24);
-			p = p | (red << 16);
-			p = p | (green << 8);
-			p = p | blue;
-                image.setRGB(x, y, p);
-            }
-        }
-        return image;
-    }
+    
     
     private BufferedImage greyscale(BufferedImage image){
         
@@ -373,7 +377,7 @@ public class JIMMan {
         switch(command){
             case "invert":
                 try{
-                    Filer.saveImage(j.invertColors(img), filename.replaceFirst("[.][^.]+$", "")+"_inverted");
+                    Filer.saveImage(imgMan.invertColors(img), filename.replaceFirst("[.][^.]+$", "")+"_inverted");
                 }catch(IOException r){
                     throw new IOException("Could not save image. Please try again.");
                 }

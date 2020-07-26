@@ -23,10 +23,43 @@
  */
 package jimman;
 
+import java.awt.Color;
+import java.awt.image.BufferedImage;
+
 /**
  *
  * @author carl
  */
 public class imgMan {
+    
+    public static BufferedImage invertColors(BufferedImage image){
+        
+        // image coords
+        int width = image.getWidth();
+        int height = image.getHeight();
+        
+        for(int x=0 ; x<width ; x++){
+            for(int y=0 ; y<height ; y++){
+                
+                int pixel = image.getRGB(x, y);
+                
+                Color c = new Color(pixel, true);
+                int alpha = 255 - c.getAlpha();
+                int red = 255 - c.getRed();
+                int green = 255 - c.getGreen();
+                int blue = 255 - c.getBlue();
+                
+                int p = 0;
+			p = p | (alpha << 24);
+			p = p | (red << 16);
+			p = p | (green << 8);
+			p = p | blue;
+                image.setRGB(x, y, p);
+            }
+        }
+        return image;
+    }
+    
+    
     
 }
