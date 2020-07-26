@@ -1,7 +1,6 @@
 package jimman;
 
 import java.awt.Color;
-import javax.imageio.ImageIO;
 import java.awt.image.*;
 import java.io.*;
 import java.util.Random;
