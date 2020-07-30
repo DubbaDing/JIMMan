@@ -1,7 +1,7 @@
 [![GitHub license](https://img.shields.io/github/license/DubbaDing/JIMMan?color=m&style=for-the-badge)](https://github.com/DubbaDing/JIMMan/blob/master/LICENSE)    [![GitHub issues](https://img.shields.io/github/issues/DubbaDing/JIMMan?style=for-the-badge)](https://github.com/DubbaDing/JIMMan/issues)    ![Maintenance](https://img.shields.io/maintenance/yes/2020?style=for-the-badge)
 
 # JIMMan
-**J**ava **IMA**ge **MAN**ipulator <br>
+**J**ava **IM**Age **MAN**ipulator <br>
 This is a simplified software to manipulate images. It can be run on the terminal with arguments or on the terminal with menus. Images are exported as a sibling to the selected image. All outputs are in jpg.
 
 ## Description
@@ -24,7 +24,7 @@ CLI:
 ```bash
 $ java -jar JIMMan [image] [command]
 ```
-CLI with Options:
+CLI with Menus:
 ```bash
 $ java -jar JIMMan
 ```
