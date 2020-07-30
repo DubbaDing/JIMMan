@@ -1,7 +1,8 @@
 [![GitHub license](https://img.shields.io/github/license/DubbaDing/JIMMan?color=m&style=for-the-badge)](https://github.com/DubbaDing/JIMMan/blob/master/LICENSE)    [![GitHub issues](https://img.shields.io/github/issues/DubbaDing/JIMMan?style=for-the-badge)](https://github.com/DubbaDing/JIMMan/issues)    ![Maintenance](https://img.shields.io/maintenance/yes/2020?style=for-the-badge)
 
 # JIMMan
-Java IMAge MANipulator
+**J**ava **IMA**ge **MAN**ipulator <br>
+This is a simplified software to manipulate images. It can be run on the terminal with arguments or on the terminal with menus. Images are exported as a sibling to the selected image. All outputs are in jpg.
 
 ## Description
 This program uses the Java ImageIO library to manipulate the pixels of an image
@@ -43,13 +44,20 @@ Type the full or relative path to an image
 ### Output
 The output will be in the same location as the original file. The file name will be the same, except with "_" and the command used. All outputs will be in .jpg format.
 
+## TODO
+Feel free to fork me and put in a pull request!
+
+- Add more mans (manipulators)
+- Allow for alternative export formats (.png, .jpeg)
+- Allow for choosing the output path/name
+- Create a release and installer
 
 ## License
 [![GitHub license](https://img.shields.io/github/license/DubbaDing/JIMMan?color=m&style=for-the-badge)](https://github.com/DubbaDing/JIMMan/blob/master/LICENSE)
 
 MIT License
 
-Copyright (c) 2020 Carl C
+Copyright (c) 2020 Carl Caldwell
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
