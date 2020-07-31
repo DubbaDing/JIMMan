@@ -4,6 +4,8 @@
 **J**ava **IM**Age **MAN**ipulator <br>
 This is a simplified software to manipulate images. It can be run on the terminal with arguments or on the terminal with menus. Images are exported as a sibling to the selected image. All outputs are in jpg.
 
+Checkout [YouTube](https://www.youtube.com/watch?v=PTxw9QElORk) for a demo!
+
 ## Description
 This program uses the Java ImageIO library to manipulate the pixels of an image
 
